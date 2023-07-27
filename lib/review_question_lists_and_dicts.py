@@ -60,10 +60,23 @@ pokemon = [
     },
 ]
 
-
-# How would you get the url for Bulbasaur's ability?
-# How would you return the first pokemon with base experience over 40?
-# How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
-# How would you return an array of all of the pokemon's names?
-# How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
-# Whatever method you use should return True if there are any such pokemon, False if not.
+if __name__ == "__main__":
+    # How would you get the url for Bulbasaur's ability?
+    print(
+        [p for p in pokemon if p["name"] == "bulbasaur"][0]["abilities"][0]["ability"][
+            "url"
+        ]
+    )
+    # How would you return the first pokemon with base experience over 40?
+    print(
+        [p for p in pokemon if p["base_experience"] > 40][0]
+    )  # list comp working like find
+    # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+    print(
+        [p for p in pokemon if p["base_experience"] > 40]
+    )  # list comp working like filter
+    # How would you return an array of all of the pokemon's names?
+    print([poke["name"] for poke in pokemon])  # list comp working like map
+    # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+    # Whatever method you use should return True if there are any such pokemon, False if not.
+    print(len([p for p in pokemon if p["weight"] > 60]) > 0)  # check list method .any()
